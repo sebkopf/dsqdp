@@ -30,8 +30,7 @@ Depends:
     psych
 Suggests:
     testthat,
-    knitr,
-    xslx
+    knitr
 Collate:
     'chromedit.R'
     'compounds.R'
