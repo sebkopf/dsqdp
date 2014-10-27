@@ -1,7 +1,7 @@
 future plans for dsqdp
 =====
 
-There's several ideas on the table for improving the user interface in version 4, but most of these will likely be rolled into a much more comprehensive implemtation of [CSIDE](http://www.github.com/sebkopf/cside). For now, just keeping these around so we don't loose track:
+There's several ideas on the table for improving the user interface in version 4, but most of these will likely be rolled into a much more comprehensive implemtation of [CSIDE](http://www.github.com/sebkopf/cside). For now, just keeping these around so we don't loose track (some are already partially implemented but not to their full potential):
 
 ## V4 GUI overhaul
 
