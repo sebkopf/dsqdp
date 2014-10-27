@@ -30,12 +30,12 @@ CP.launch<-function(container=NULL, returnfunc=NULL, returnargs=NULL, wintitle="
   library(gWidgets)
   library(zoo)
   options("guiToolkit"="RGtk2")
-
+  
   #CP objects
   cpgui<-list()
   
   # window and frames
-  cpgui$win<-gwindow(wintitle, cont=container, width=1024, height=768)
+  cpgui$win<-gwindow(wintitle, cont=container, width=1024, height=768, visible = FALSE)
   gw<-ggroup(con=cpgui$win, horizontal=FALSE)
   topgrp<-ggroup(cont=gw)
   navframe<-gframe("Navigation", cont=topgrp, expand=FALSE)
@@ -146,12 +146,14 @@ CP.load<-function(cpgui, signal, time=NULL, peaks=NULL) {
   else 
     CP.peakdetectHandler(cpgui)
   
-  # wait message (not necessary?)
-  gmessage("The chromatogram parser takes a moment to load.\nPlease wait until the window is fully initialized.", cont=cpgui$win)
-  
-  # plot the spectrum
-  tag(cpgui$gobj, "doPlot")<-TRUE # avoid handler triggered plotting
-  CP.plot(cpgui)
+  # attach plotting event to focus handler (enables even modal dialog loading)
+  visHandler <- addHandlerFocus(cpgui$win, handler=function(...) {
+    # plot the spectrum on window load
+    tag(cpgui$gobj, "doPlot")<-TRUE # avoid handler triggered plotting
+    CP.plot(cpgui)
+    blockHandler(cpgui$win, ID=visHandler)
+  })
+  visible(cpgui$win, TRUE)
 }
 
 ####################
@@ -165,7 +167,7 @@ CP.save<-function(cpgui, returnfunc=NULL, returnargs=NULL) {
   
   # IMPORTANT: here the modified peak areas and heights are recalculated!
   peaks[which(peaks$modified==TRUE),]<-spectrum.peakcalcs(data$signal, peaks[which(peaks$modified==TRUE),], time=data$time) 
-
+  
   params<-list(solv=svalue(cpgui$solv), solvUnit=svalue(cpgui$solvUnit), smooth=svalue(cpgui$smooth), width=svalue(cpgui$width), delta=svalue(cpgui$noise), hcutoff=svalue(cpgui$hcutoff), acutoff=svalue(cpgui$acutoff))    
   
   if (!is.null(returnfunc))
@@ -179,7 +181,7 @@ CP.save<-function(cpgui, returnfunc=NULL, returnargs=NULL) {
 # Find out if you really want to run peak detection again
 CP.confirmPeakDetect<-function(cpgui) {
   return(is.null(tag(cpgui$gobj,"peaks")) || length(which(tag(cpgui$gobj,"peaks")$modified==TRUE)) == 0 || 
-       gconfirm("There are peaks that have been added/edited. Rerunning the peak detection algorithm will overwrite any manual changes. Do you wish to proceed?"))
+           gconfirm("There are peaks that have been added/edited. Rerunning the peak detection algorithm will overwrite any manual changes. Do you wish to proceed?"))
 }
 
 # function to set all the peak detection parameters
@@ -525,7 +527,7 @@ spectrum.peakdetect<-function(signal, time=NULL, smooth=60, width = 10, delta = 
       }
     }
   }
-    
+  
   # peak optimization and additional information
   peaks$PI<-apply(peaks,1,function(x) {x[1]-1+which(signal[x[1]:x[2]]==max(signal[x[1]:x[2]]))[1]}) # peak index (maximum in the signal start to end range) #index=5
   peaks$SI<-apply(peaks,1,function(x) {x[1]-1+which(signal[x[1]:x[5]]==min(signal[x[1]:x[5]]))[1]}) # adjust to absolut minimum in the range from peak start to peak apex #index=1
@@ -570,4 +572,5 @@ spectrum.peakcalcs<-function(signal, peaks, time=NULL) {
 #################
 is.empty<-function(variable)
   return (is.na(variable) || is.null(variable) || length(variable) == 0)
+
 

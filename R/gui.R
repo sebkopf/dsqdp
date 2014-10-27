@@ -7,12 +7,20 @@ launch_dsqdp <- function() {
   # keep track of whether the DSQDP is running
   DSQDP.running <<- TRUE
   
+  # show a small loading window
+  load_win <- gwindow("Loading DSQDP...", width=400, height=100)
+  load_grp <- ggroup(horizontal=FALSE, expand=TRUE, cont=load_win)
+  addSpring(load_grp, expand=T)
+  glabel("Loading User Interface, please wait...", cont=load_grp)
+  addSpring(load_grp, expand=T)
+  
   # modal dialog
   #gw <- gbasicdialog(
   #  title=paste("DSQ / D+ Data Processor", packageVersion('dsqdp'),"- Workspace:", getwd()), do.buttons=FALSE) #FIXME add parent = 
   #size(gw) <- c(1400, 700)
   
-  gw <- gwindow(paste("DSQ / D+ Data Processor", packageVersion('dsqdp'), "- Workspace:", getwd()), width=1400, height=700, spacing=10)
+  gw <- gwindow(paste("DSQ / D+ Data Processor", packageVersion('dsqdp'), "- Workspace:", getwd()), width=1400, height=700, spacing=10, visible = FALSE)
+  
   addHandlerDestroy(gw, handler=function(h,...) { message("\nGoodbye!!"); DSQDP.running <<- FALSE })
   
   ### major divisions
@@ -76,9 +84,7 @@ launch_dsqdp <- function() {
   
   dataset.addHandler<-function(duplicate = FALSE) {
     newDS<-dataset.new() # make new dataset
-    message("new DS:", newDS)#FIXME
     currentDS<-datasets.getDatasetByID(table.getSelectedValue(dsGUI$datasets.table)) # get current data set
-    message("current DS: ", currentDS) #FIXME
     if (duplicate) 
       for (field in c("Date", "ISAmount", "IS", "DSQMethod", "Datatype", "Name")) # duplicate from current data set
         newDS[[field]]<-currentDS[[field]] 
@@ -244,8 +250,14 @@ launch_dsqdp <- function() {
                          }), cont=plot.buttons.right)
   
   ###### init #######
-  # initiate screen (load whatever needs to be loaded )
-  table.setSelectedValue(dsGUI$datasets.table, 1, index=TRUE, blockHandlers=c("changed", "clicked")) # select first dataset in the table 
-  dataset.selectionHandler() # load it
+  # attach init event to focus handler (enables even modal dialog loading)
+  visHandler <- addHandlerFocus(gw, handler=function(...) {
+    # initiate screen (load whatever needs to be loaded )
+    table.setSelectedValue(dsGUI$datasets.table, 1, index=TRUE, blockHandlers=c("changed", "clicked")) # select first dataset in the table 
+    dataset.selectionHandler() # load it
+    blockHandler(gw, ID=visHandler)
+  })
   
+  dispose(load_win)
+  visible(gw, TRUE)
 }

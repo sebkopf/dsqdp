@@ -629,7 +629,6 @@ table.updateSelection<-function(table, data, ignoreMissing = FALSE) {
 # returns index of newly added entry
 table.add<-function(table, data, index=NULL, select=TRUE, blockHandlers=NULL, ignoreMissing = FALSE) {
   table.blockHandlers(table, handlers=blockHandlers) # block handlers
-  message("HERE")#FIXME
   if (!is.null(index) && index<=nrow(table[,,drop=F])) 
     table[,,drop=F][(index+1):(nrow(table[,,drop=F])+1),]<-table[,,drop=F][index:nrow(table[,,drop=F]),] # move records up one
   else

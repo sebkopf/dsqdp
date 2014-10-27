@@ -21,7 +21,7 @@
 #' @include imports.R
 #' @include exports.R
 #' @include plots.R
-#' @include chromparse.R
+#' @include chromedit.R
 NULL
 
 #' Start the DSQDP Data Processor
@@ -56,13 +56,17 @@ dsqdp.start <- function(
   if ( !file.exists(data_file) ) {
     message("\tLooking for ", data_file, "... file NOT found, initializing new ", data_file, "...")
     
-    # copy both the default DSQDP.RDATA and default compounds.lib
+    # copy both the default DSQDP.RDATA and default compounds.lib as well as a chromatogram
     file.copy(
       from = system.file("extdata", "new_DSQDP.RDATA", package="dsqdp"),
       to = data_file)
     file.copy(
       from = system.file("extdata", "default_compounds.csv", package="dsqdp"),
       to = file.path("lib", compounds_lib))
+    file.copy(
+      from = system.file("extdata", "test_chrom_dataset_1_FID.RData", package="dsqdp"),
+      to = file.path("chroms", "chrom_dataset_1_FID.RData"))
+    
     
     if (!file.exists(data_file))
       stop("could not copy new DSQDP.RDATA from package sources")
@@ -87,7 +91,7 @@ dsqdp.start <- function(
     gmessage("Warning: It looks like the compounds library that is loaded might not be identical to the one used previously with this data set. Careful in case any compound IDs might no longer be correctly assigned.")
   g.currentVersion <<- new_version
   
-  message("\nLaunching DSQDP.\n\n")
+  message("\nLaunching DSQDP... please wait...\n\n")
   launch_dsqdp()
 }
 
