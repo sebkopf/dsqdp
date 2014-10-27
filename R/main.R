@@ -37,10 +37,11 @@ dsqdp.start <- function(
   options("guiToolkit"="RGtk2")
   
   # select working directory
-  wd <- gfile("Select your DSQDP workspace folder.", type="selectdir")
+  wd <- gfile("Select your DSQDP workspace folder.", type="selectdir") 
+  # NOTE: gfile has a bug on "cancel", but couldn't find a way to fix or catch the error (dialog does not dispose!)
   
   # load working directory
-  if ( !is.null(wd) && file.exists (wd) ) {
+  if ( !is.na(wd) && file.exists (wd) ) {
     setwd(wd)
     message("Loading DSQDP workspace:", getwd())
   } else {
