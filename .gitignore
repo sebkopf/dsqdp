@@ -12,3 +12,8 @@
 
 # FIXME: for now excluding documentation
 man/*.Rd
+.Rproj.user
+
+# FIXME: excluding specific test folders
+BatchCultures/*
+dsqdp chemostat/*

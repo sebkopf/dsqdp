@@ -1,9 +1,48 @@
 Package: dsqdp
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: Work with exported chromatograms from Excalibur
+Version: 3.0
 Date: 2014-10-26
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Sebastian Kopf
+Maintainer: Sebastian Kopf <seb.kopf@gmail.com>
+Description: Export TIC and FID chromatograms from Excalibur and aggregate data
+    using this GTK+ based user interface.
+License: GPL-3
+LazyLoad: yes
+Roxygen: list(wrap = FALSE)
+VignetteBuilder: knitr
+URL: https://github.com/sebkopf/dsqdp
+BugReports: https://github.com/sebkopf/dsqdp/issues
+Depends:
+    ggplot2,
+    reshape2,
+    plyr,
+    psych,
+    scales,
+    gWidgets,
+    RGtk2,
+    gWidgetsRGtk2,
+    cairoDevice,
+    graphics,
+    stringr,
+    sqldf,
+    digest,
+    psych
+Suggests:
+    testthat,
+    knitr,
+    xslx
+Collate:
+    'chromparse.R'
+    'compounds.R'
+    'datasets.R'
+    'exports.R'
+    'gui.R'
+    'imports.R'
+    'load_save.R'
+    'widgets.R'
+    'utils.R'
+    'plots.R'
+    'peaklists.R'
+    'main.R'
+    'updates.R'
