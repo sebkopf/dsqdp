@@ -1,7 +1,7 @@
 #! /usr/bin/Rscript --vanilla
 # This is a MacOSX launch script for the DSQDP
 # Edit starting working directory here:
-starting_dir <- "/Users/sk/Dropbox/Tools/software/R/dsqdp" # EDIT HERE
+starting_dir <- "" # EDIT HERE
 
 # switch wd
 if (!file.exists(starting_dir)) stop("directory does not exist: ", starting_dir)
