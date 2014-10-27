@@ -1,0 +1,55 @@
+"ID","Name","Active","Long","Class","Order"
+"20","10me-19:0 FA","Yes","Tuberculostearic Acid","Fatty Acid Methyl Ester",1
+"25","11:0 FA","Yes","","Fatty Acid Methyl Ester",2
+"13","12:0 FA","Yes","","Fatty Acid Methyl Ester",3
+"14","13:0 FA","Yes","","Fatty Acid Methyl Ester",4
+"15","14:0 FA","Yes","","Fatty Acid Methyl Ester",8
+"1","15:0 FA","Yes","","Fatty Acid Methyl Ester",15
+"2","16:0 FA","Yes","","Fatty Acid Methyl Ester",19
+"16","16:1 FA","Yes","","Fatty Acid Methyl Ester",18
+"3","17:0 FA","Yes","","Fatty Acid Methyl Ester",25
+"4","18:0 FA","No","","Fatty Acid Methyl Ester",31
+"6","18:1 FA","Yes","","Fatty Acid Methyl Ester",29
+"27","18:1 FA trans","Yes","","Fatty Acid Methyl Ester",30
+"7","18:2 FA","Yes","","Fatty Acid Methyl Ester",28
+"11","18:x FA","Yes","","Fatty Acid Methyl Ester",26
+"28","19:0 FA","Yes","","Fatty Acid Methyl Ester",35
+"40","2-OH 12:0 FA","Yes","","Hydroxylated Fatty Acid Methyl Ester",5
+"42","2-OH 14:0 FA","Yes","","Hydroxylated Fatty Acid Methyl Ester",9
+"44","2-OH 16:0 FA","Yes","","Hydroxylated Fatty Acid Methyl Ester",20
+"29","20:0 FA","Yes","","Fatty Acid Methyl Ester",36
+"30","20:1 FA","Yes","","Fatty Acid Methyl Ester",37
+"31","20:2 FA","Yes","","Fatty Acid Methyl Ester",38
+"32","20:3 FA","Yes","","Fatty Acid Methyl Ester",39
+"33","20:4 FA","Yes","","Fatty Acid Methyl Ester",40
+"34","21:0 FA","Yes","","Fatty Acid Methyl Ester",43
+"8","22:0 FA","No","","Fatty Acid Methyl Ester",44
+"9","23:0 FA","No","","Fatty Acid Methyl Ester",45
+"35","24:0 FA","Yes","","Fatty Acid Methyl Ester",46
+"10","25:0 FA","Yes","","Fatty Acid Methyl Ester",47
+"41","3-OH 12:0 FA","Yes","","Hydroxylated Fatty Acid Methyl Ester",6
+"43","3-OH 14:0 FA","Yes","","Hydroxylated Fatty Acid Methyl Ester",11
+"18","a-15:0 FA","Yes","","Fatty Acid Methyl Ester",14
+"21","a-17:0 FA","Yes","","Fatty Acid Methyl Ester",23
+"37","CH4","Yes","methane","internal reference gas",48
+"24","cyclo-17:0 FA","Yes","","Fatty Acid Methyl Ester",24
+"23","cyclo-19:0 FA","Yes","","Fatty Acid Methyl Ester",34
+"38","H2","Yes","hydrogen gas","internal reference gas",49
+"19","i-15:0 FA","Yes","","Fatty Acid Methyl Ester",13
+"26","i-16:0 FA","Yes","","Fatty Acid Methyl Ester",16
+"22","i-17:0 FA","Yes","","Fatty Acid Methyl Ester",22
+"5","n-18:0","Yes","","Alkane",50
+"17","PAIBE","Yes","Palmitic Acid Isobutyl Ester","Fatty Acid Isobutyl Ester",51
+"12","Siloxane","No","","Contaminant",52
+"39","Squalene","Yes","","Internal reference standard",53
+"36","Unknown","No","unknown compound","Unknown",54
+"45","a-16:0 FA","Yes","","Fatty Acid Methyl Ester",17
+"46","i-19:0 FA","Yes","","Fatty Acid Methyl Ester",32
+"47","a-19:0 FA","Yes","","Fatty Acid Methyl Ester",33
+"48","me-14:0 FA","Yes","","Fatty Acid Methyl Ester",10
+"49","i-21:0 FA","Yes","","Fatty Acid Methyl Ester",41
+"50","a-21:0 FA","Yes","","Fatty Acid Methyl Ester",42
+"51","i-17:1 FA","Yes","11-Hexadecenoic acid, 15-methyl-, methyl ester","Fatty Acid Methyl Ester",21
+"52","i-15:1 FA","Yes","not so sure this is a real thing","Fatty Acid Methyl Ester",12
+"53","i-18:0 FA","Yes","","Fatty Acid Methyl Ester",27
+"54","i-14:0 FA","Yes","","Fatty Acid Methyl Ester",7
