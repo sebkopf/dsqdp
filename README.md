@@ -29,10 +29,8 @@ library(dsqdp)
 dsqdp.start()
 ```
 
-Or directly from the terminal via Rscript
+Or directly from the terminal via Rscript (will start in the current directory by default but you can adjust it by changing the path in the ```setwd()``` call):
 
 ```coffee
-Rscript -e 'library(dsqdp); dsqdp.start_from_script()'
+Rscript -e 'setwd("."); library(dsqdp); dsqdp.start_from_script()'
 ```
-
-Or using the *dsqdp* shell script (on Unix based systems) in this repository (just download into any folder, e.g. /bin, change the ```starting_dir``` variable inside the script, make exectuble using ```chmod +x ./dsqdp``` and then you can call it from anywhere or just execute by double-clicking). A similar script for windows will come soon.
