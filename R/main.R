@@ -40,7 +40,7 @@ dsqdp.start <- function(
   wd <- gfile("Select your DSQDP workspace folder.", type="selectdir")
   
   # load working directory
-  if ( file.exists (wd) ) {
+  if ( !is.null(wd) && file.exists (wd) ) {
     setwd(wd)
     message("Loading DSQDP workspace:", getwd())
   } else {
@@ -62,14 +62,14 @@ dsqdp.start <- function(
       to = data_file)
     file.copy(
       from = system.file("extdata", "default_compounds.csv", package="dsqdp"),
-      to = file.path("lib", compounds_lib))
+      to = compounds_lib)
     file.copy(
       from = system.file("extdata", "test_chrom_dataset_1_FID.RData", package="dsqdp"),
       to = file.path("chroms", "chrom_dataset_1_FID.RData"))
     
     
-    if (!file.exists(data_file))
-      stop("could not copy new DSQDP.RDATA from package sources")
+    if (!file.exists(data_file) || !file.exists(compounds_lib))
+      stop("could not copy new DSQDP.RDATA or compounds library from package sources")
 
     # inform user
     gmessage(paste("Welcome to starting DSQDP for the first time in this workspace. To reload the data stored in this workspace in the future, please go back into this exact same workspace directory on startup: ", getwd()))

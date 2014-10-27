@@ -15,5 +15,4 @@ man/*.Rd
 .Rproj.user
 
 # FIXME: excluding specific test folders
-BatchCultures/*
-dsqdp chemostat/*
+inst/tests/*

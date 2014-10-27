@@ -33,7 +33,7 @@ Suggests:
     knitr,
     xslx
 Collate:
-    'chromparse.R'
+    'chromedit.R'
     'compounds.R'
     'datasets.R'
     'exports.R'
