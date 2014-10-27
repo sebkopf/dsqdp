@@ -104,7 +104,7 @@ dsqdp.start_from_script <- function(...) {
   dsqdp.start(...)
   
   # run loop until the program is finished
-  message("DSQDP running modally. Have fun!")
+  message("\n\nDSQDP running modally. Have fun!")
   while (DSQDP.running) {
     
   }
