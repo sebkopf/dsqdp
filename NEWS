@@ -1,0 +1,8 @@
+dsqdp 0.1
+----------------------------------------------------------------
+
+* Converted into an R package
+* Bug fixed when reprocessing chromatogram (now dialog closes automatically on save)
+* Bug fixed when assigning peaks from sub classes (would not find the right component)
+* Bug fixed when only having one single dataset (would not be able to add more)
+* Windows only become visible upon complete loading
