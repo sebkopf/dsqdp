@@ -11,7 +11,7 @@ The user interface in this package is generated using GTK+, a cross-platform too
 
 The **devtools** package provides a super convenient way of installing the **dsqdp** package directly from GitHub. To install **devtools**, run the following from the R command line:
 ```coffee
-install.packages('devtools', depen=T) # development tools
+install.packages('devtools', depen=T) 
 ```
 
 This package compiles R libraries from source using the gcc compiler, which is usually already installed on Unix-based systems. If not, it is most easily acquired by installing [Apple's XCode command line tools](https://developer.apple.com/downloads/) (requires an Apple ID, make sure to install for your version of Mac OS X). On Windows, it requires installing the [RTools from CRAN](http://cran.r-project.org/bin/windows/Rtools/). You can confirm that you have it all up and running by checking that ```find_rtools()``` in the R command line returns ```TRUE```:
@@ -28,12 +28,16 @@ install_github("sebkopf/dsqdp")
 ```
 
 ##Run dsqdp
+
+### In R
 Once installed, you can now run the DSQ Data Processor in any R workspace (command line R, RStudio, iPython Rmagic, etc.):
 
 ```coffee
 library(dsqdp)
 dsqdp.start()
 ```
+
+### From command line
 
 Or directly from command line, a link or another script via Rscript (will start in the current directory by default but you can adjust it by changing the path in the ```setwd()``` call):
 
