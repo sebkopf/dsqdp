@@ -26,9 +26,8 @@
 # default parameters are the valid ones for FID 
 CP.launch<-function(container=NULL, returnfunc=NULL, returnargs=NULL, wintitle="Chromatograph Parser", 
                     solvdelay=10, smooth=60, noise=1000, width=30, hcutoff=1, acutoff=0) {
-  library(psych)
-  library(gWidgets)
-  library(zoo)
+  
+  # this requires the zoo (for rollmean) and psych (for copy and paste) libraries
   options("guiToolkit"="RGtk2")
   
   #CP objects

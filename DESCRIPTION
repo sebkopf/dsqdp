@@ -27,7 +27,8 @@ Depends:
     stringr,
     sqldf,
     digest,
-    psych
+    psych,
+    zoo
 Suggests:
     testthat,
     knitr
