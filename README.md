@@ -14,11 +14,17 @@ The **devtools** package provides a super convenient way of installing the **dsq
 install.packages('devtools', depen=T) # development tools
 ```
 
-Then simply install the latest version of the DSQ Data Processor directly from GitHub by running the following code (if it is the first time you install the **dsqdp** package, all missing dependencies will be automatically installed as well -> **ggplot2, plyr, psych, scales, grid, gWidgets, RGtk2**, etc. as well as their respective dependencies, which might take a few minutes):
+This package compiles R libraries from source using the gcc compiler, which is usually already installed on Unix-based systems. If not, it is most easily acquired by installing [Apple's XCode command line tools](https://developer.apple.com/downloads/) (requires an Apple ID, make sure to install for your version of Mac OS X). On Windows, it requires installing the [RTools from CRAN](http://cran.r-project.org/bin/windows/Rtools/). You can confirm that you have it all up and running by checking that ```find_rtools()``` in the R command line returns ```TRUE```:
 
 ```coffee
 library(devtools)
-install_github('dsqdp', 'sebkopf')
+find_rtools()
+```
+Then simply install the latest version of the DSQ Data Processor directly from GitHub (make sure [GTK is installed](https://gist.github.com/sebkopf/9405675) first!) by running the following code (if it is the first time you install the **dsqdp** package, all missing packages will be automatically installed as well as their respective dependencies, which might take a few minutes):
+
+```coffee
+library(devtools)
+install_github("sebkopf/dsqdp")
 ```
 
 ##Run dsqdp
@@ -29,8 +35,20 @@ library(dsqdp)
 dsqdp.start()
 ```
 
-Or directly from the terminal via Rscript (will start in the current directory by default but you can adjust it by changing the path in the ```setwd()``` call):
+Or directly from command line, a link or another script via Rscript (will start in the current directory by default but you can adjust it by changing the path in the ```setwd()``` call):
 
+#### Unix-based systems (Linux, MacOSX)
+
+In the terminal, type:
 ```coffee
-Rscript -e 'setwd("."); library(dsqdp); dsqdp.start_from_script()'
+Rscript -e "setwd('.'); library(dsqdp); dsqdp.start_from_script()"
 ```
+
+#### Windows
+
+In the command line (note that unless RScript.exe is in your PATH, you need to adjust it to point to the right directory):
+```coffee
+"C:\Program Files\R\R-3.1.1\bin\Rscript.exe" -e "setwd('.'); library(dsqdp); dsqdp.start_from_script()"
+```
+
+NOTE: when setting a starting directory in this command line/Desktop link call, such as for example ```C:\Files\```, make sure to escape the backslashes, i.e. use ```setwd('C:\\Files\\')```
