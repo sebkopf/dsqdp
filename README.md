@@ -27,7 +27,11 @@ library(devtools)
 install_github("sebkopf/dsqdp")
 ```
 
-**Troubleshooting note**: it seems that on Windows 8, the **RGtk2** package is sometimes not recognized during package installations from source. If **dsqdp** installation fails with an error that **RGtk2** is missing (although it can be loaded without any problems following the [installation instructions](https://gist.github.com/sebkopf/9405675)), try installing it without the automatic package loading (the step where it fails) instead: ```install_github("sebkopf/dsqdp", reload=F, quick=T)```
+**Troubleshooting note**: it seems that on Windows 8, the **RGtk2** package is sometimes not recognized during package installations from source. If **dsqdp** installation fails with an error that **RGtk2** is missing (although it can be loaded without any problems following the [installation instructions](https://gist.github.com/sebkopf/9405675)), try installing it without the automatic package loading (the step where it fails) instead: 
+
+```coffee
+install_github("sebkopf/dsqdp", reload=F, quick=T)
+```
 
 #### Updating to a newer version
 
