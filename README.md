@@ -27,6 +27,8 @@ library(devtools)
 install_github("sebkopf/dsqdp")
 ```
 
+**Troubleshooting note**: it seems that on Windows 8, the **RGtk2** package is sometimes not recognized during package installations from source. If **dsqdp** installation fails with an error that **RGtk2** is missing (although it can be loaded without any problems following the [installation instructions](https://gist.github.com/sebkopf/9405675)), try installing it without the automatic package loading (the step where it fails) instead: ```install_github("sebkopf/dsqdp", reload=F, quick=T)```
+
 #### Updating to a newer version
 
 To update an older installation of the **dsqdp* package to the newest version, just restart R and rerun ```install_github("sebkopf/dsqdp")```. If the newer version requires changes to the data structure of previous projects, they will be automatically updated when you run dsqdp in the old working directory for the first time. A backup of the old data structure will be stored in the ```backups``` subfolder just in case anything goes wrong.
